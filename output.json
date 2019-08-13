@@ -1,0 +1,25 @@
+{
+  "grammar_score": 7.5,
+  "vocab_score": 7.5,
+  "coherence_score": 8,
+  "overall_score": 9,
+  "grammar_error": [
+    {
+      "offset": 367,
+      "length": 3,
+      "replacements": "The"
+    },
+    {
+      "offset": 350,
+      "length": 4,
+      "replacements": "is"
+    }
+  ],
+  "vocab_recommend": [
+    {
+      "offset": 0,
+      "length": 5,
+      "replace_words": "abc,abc,abc,abc"
+    }
+  ]
+}
