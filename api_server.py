@@ -1,6 +1,5 @@
 from flask import Flask, request
-import json
-import ai_adapter
+import ai_adapter, data_collector
 
 app = Flask(__name__)
 
@@ -24,9 +23,10 @@ def get_full_exam():
     return response
 
 
-@app.route("exam/get_writing")
+@app.route("/exam/get_writing")
 def get_writing_exam():
-    return
+    id = request.args.get("id", 0)
+    return data_collector.get_writing_exam(int(id))
 
 
 app.run(host="localhost", port=5000, debug=True)
