@@ -29,4 +29,4 @@ def get_writing_exam():
     return data_collector.get_writing_exam(int(id))
 
 
-app.run(host="localhost", port=5000, debug=True)
+app.run(host="192.168.10.150", port=5000, debug=True)
