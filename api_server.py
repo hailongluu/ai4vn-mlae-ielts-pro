@@ -11,6 +11,7 @@ def welcome_home():
 
 @app.route("/score/")
 def get_score():
+    topic = request.args.get("topic")
     text = request.args.get("text")
     response = ai_adapter.get_score_reports(text)
     return response
