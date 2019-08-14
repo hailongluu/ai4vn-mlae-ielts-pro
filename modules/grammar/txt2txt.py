@@ -293,6 +293,7 @@ class DeepCorrect():
         # loading the model
         DeepCorrect.deepcorrect_model = build_model(params_path)
         DeepCorrect.deepcorrect_model[0].load_weights(checkpoint_path)
+        DeepCorrect.deepcorrect_model[0]._make_predict_function()
     
     def correct(self, sentence, beam_size = 1):
         if not DeepCorrect.deepcorrect_model:

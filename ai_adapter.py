@@ -1,7 +1,10 @@
 import json
+import re
+
 from modules.coherence.coherence_model import CoherenceModel
 from modules.vocab.model import Model
 import data_collector
+from modules.grammar.score_grammar import Essay
 
 
 class APIAdapter:
@@ -12,9 +15,12 @@ class APIAdapter:
         self.vocab_model = Model()
 
     def get_score_reports(self, topic, text):
+        topic = re.sub(r"\n", "", topic)
+
         coherence_score = self.coherence_model.predict(text, topic)
         vocab_score = self.vocab_model.predict(text)
-        grammar_score = 0;
+        grammar_score = Essay(text).toJSON()
+        # grammar_score = 0;
         grammar_error = [dict(length=0, offset=111, replacement="The")]
         vocab_recommend = [dict(length=0, offset=111, replacement="abc,abc,abc")]
         overall_score = (coherence_score + grammar_score + vocab_score) / 3
