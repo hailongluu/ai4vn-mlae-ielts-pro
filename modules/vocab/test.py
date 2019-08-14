@@ -1,0 +1,9 @@
+from model import Model
+
+model = Model()
+text = 'Taxes are essential for the growth of the country. A few individuals believe that the government should not deduct taxes from their earnings. I completely disagree with this notion and firmly believe that citizens are entitled to pay taxes for the betterment of the country and for an enhanced standard of living.\
+ Firstly, it is a fact that every country runs on the taxes that are collected from their citizens. These taxes are collected for the construction of various facilities such as public transportation, medical facilities, universities, and so on. Indeed the taxes collected are used for the benefit of the public. For example, in countries like Canada and Australia, the citizens enjoy medical and primary education facilities for free, and this is possible only because their people contribute to the government in the form of taxes. \
+ Secondly, in some countries paying taxes is a way of saving for the retirement. The people of these countries enjoy retirement benefits from the government when they are aged. People hardly find well-paid jobs when they are above 60 and might earn only minimum wages; therefore, in such a situation, the pension that the government pays will be helpful. For example, in countries like Canada and Australia, the government provides retirement benefits to their citizens since they had paid taxes when they were working. \
+ To conclude, taxes are resources for the government to build the country and to ensure that their citizens have a good standard of living. People also require facilities like hospitals, universities and robust transportation systems and to build them the government needs money and taxes are the primary source of income for the government.'
+score = model.predict(text)
+print('{}|{}'.format(score, 7.5))
