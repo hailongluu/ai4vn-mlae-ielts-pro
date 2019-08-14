@@ -3,6 +3,7 @@ from grammarbot import GrammarBotClient
 from txt2txt import DeepCorrect
 import difflib
 import pandas as pd
+import json
 
 client = GrammarBotClient()
 client = GrammarBotClient(api_key='AF5B9M2X') 
@@ -55,9 +56,10 @@ class Error:
 class Essay:
     def __init__(self, paragraph):
         self.org_paragraph = tokenize_paragraph(paragraph)
-        self.res_api = self.api_check(self.org_paragraph)
-        self.res_model= self.model_check(self.org_paragraph)
-        self.res_merged= self.merger_res_err(self.res_api,self.res_model)   
+        res_api = self.api_check(self.org_paragraph)
+        res_model= self.model_check(self.org_paragraph)
+        self.res_merged= self.merger_res_err(res_api,res_model)  
+        self.score=self.score_essay()
 
     def print_err(self):
         print("API:")
@@ -139,6 +141,11 @@ class Essay:
 
         return total_score/len(sentences)
 
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, 
+            sort_keys=True, indent=4)
+    
+
 def read_data_sets(file_path):
     data = pd.read_csv(file_path, sep='|')
     return data
@@ -150,6 +157,7 @@ if __name__ == '__main__':
     for (idx,paragraph) in enumerate(paragraphs):
         score_con=score_cons[idx]
         grammar_score=0
-        grammar_score=Essay(paragraph).score_essay()
-        print(str(score_con)+' '+str(grammar_score))
+        essay=Essay(paragraph)
+        print(essay.toJSON())
+        # print(str(score_con)+' '+str(grammar_score))
 
