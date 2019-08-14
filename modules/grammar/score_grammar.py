@@ -93,9 +93,9 @@ class Essay:
     def model_check(self, org_paragraph):
         sentences = tokenize.sent_tokenize(org_paragraph)
         model_corrected_paragraph = ''
-        for sentence in sentences:
-            model_corrected_sentence = model_deep_correct.correct(sentence)
-            model_corrected_paragraph += model_corrected_sentence[0][0]['sequence']
+        model_results=model_deep_correct.correct(sentences)
+        for model_corrected_sentence in model_results:
+            model_corrected_paragraph += model_corrected_sentence[0]['sequence']
             model_corrected_paragraph += ' '
         return my_get_opcodes(org_paragraph, model_corrected_paragraph)
 
