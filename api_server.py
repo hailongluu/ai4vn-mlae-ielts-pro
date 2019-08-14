@@ -1,7 +1,11 @@
 from flask import Flask, request
+from flask_ngrok import run_with_ngrok
 import ai_adapter, data_collector
 
 app = Flask(__name__)
+
+
+# run_with_ngrok(app)
 
 
 @app.route("/home")
@@ -30,4 +34,8 @@ def get_writing_exam():
     return data_collector.get_writing_exam(int(id))
 
 
-app.run(host="192.168.10.150", port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
+    # app.run()
+
+    # app.run()
