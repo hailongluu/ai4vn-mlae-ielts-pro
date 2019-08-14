@@ -15,13 +15,19 @@ class APIAdapter:
         self.vocab_model = Model()
 
     def get_score_reports(self, topic, text):
-        topic = re.sub(r"\n", "", topic)
-
         coherence_score = self.coherence_model.predict(text, topic)
         vocab_score = self.vocab_model.predict(text)
-        grammar_score = Essay(text).toJSON()
-        # grammar_score = 0;
-        grammar_error = [dict(length=0, offset=111, replacement="The")]
+        text = re.sub(r"\n", "", text)
+        # text = str.encode(text, 'utf-8')
+        # print(text)
+
+        grammar_report = Essay(text).toJSON()
+        grammar_report = json.loads(grammar_report)
+        grammar_score = grammar_report["score"]
+        grammar_error = grammar_report["res_merged"]
+        grammar_old_graph = grammar_report["org_paragraph"]
+        grammar = dict(grammar_error=grammar_error, grammar_old_graph=grammar_old_graph)
+        # grammar_error = [dict(length=0, offset=111, replacement="The")]
         vocab_recommend = [dict(length=0, offset=111, replacement="abc,abc,abc")]
         overall_score = (coherence_score + grammar_score + vocab_score) / 3
         overall_score = round(overall_score, 1)
@@ -31,7 +37,7 @@ class APIAdapter:
             coherence_score=coherence_score,
             grammar_score=grammar_score,
             overall_score=overall_score,
-            grammar_error=grammar_error,
+            grammar=grammar,
             vocab_recommend=vocab_recommend,
             sample=sample
         )

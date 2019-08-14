@@ -35,6 +35,19 @@ def get_sample_topic(topic):
     return sample
 
 
+def get_topic(num):
+    f = open("data/writing/writing.csv", errors='ignore')
+    data_file = list(csv.reader(f, delimiter=','))
+    f.close()
+    topics = []
+    count = 0
+    for row in data_file:
+        if count < num:
+            topics.append(dict)
+            count += 1
+    return topics
+
+
 def get_writing_exam(id):
     f = open("data/writing/writing.csv", errors='ignore')
     data_file = list(csv.reader(f, delimiter=','))

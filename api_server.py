@@ -31,6 +31,12 @@ def get_full_exam():
     return response
 
 
+@app.route("/exam/get_topic")
+def get_topic():
+    topics = data_collector.get_topic(20)
+    return jsonify(topics)
+
+
 @app.route("/exam/get_writing")
 def get_writing_exam():
     id = request.args.get("id", 0)
