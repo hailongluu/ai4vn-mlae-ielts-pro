@@ -1,7 +1,11 @@
 from flask import Flask, request
-import ai_adapter, data_collector
+import data_collector
+from ai_adapter import APIAdapter
+# import modules.grammar.score_grammar
 
 app = Flask(__name__)
+api_adapter = APIAdapter()
+
 
 # run_with_ngrok(app)
 
@@ -15,14 +19,14 @@ def welcome_home():
 def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
-    response = ai_adapter.get_score_reports(topic, text)
+    response = api_adapter.get_score_reports(topic, text)
     return response
 
 
 @app.route("/exam/get_full")
 def get_full_exam():
     id = request.args.get("id")
-    response = ai_adapter.get_all_exam(id)
+    response = api_adapter.get_all_exam(id)
     return response
 
 
@@ -33,6 +37,5 @@ def get_writing_exam():
 
 
 if __name__ == "__main__":
-
     app.run(port=5000, debug=True)
     # app.run()
