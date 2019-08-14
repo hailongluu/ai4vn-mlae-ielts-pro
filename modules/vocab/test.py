@@ -1,4 +1,4 @@
-from model import Model
+from modules.vocab.model import Model
 
 model = Model()
 text = 'Taxes are essential for the growth of the country. A few individuals believe that the government should not deduct taxes from their earnings. I completely disagree with this notion and firmly believe that citizens are entitled to pay taxes for the betterment of the country and for an enhanced standard of living.\

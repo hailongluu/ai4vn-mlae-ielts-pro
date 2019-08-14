@@ -2,6 +2,20 @@ import csv
 import json
 
 
+def get_sample_topic(topic):
+    f = open("data/writing/writing.csv", errors='ignore')
+    data_file = list(csv.reader(f, delimiter=','))
+    f.close()
+    sample = []
+    for row in data_file:
+        print(row[0])
+        print(topic)
+        print(row[1])
+        if topic == row[1]:
+            sample.append(dict(text=row[2], band=row[3]))
+    return sample
+
+
 def get_writing_exam(id):
     f = open("data/writing/writing.csv", errors='ignore')
     data_file = list(csv.reader(f, delimiter=','))
@@ -16,7 +30,6 @@ def get_writing_exam(id):
         answer=answer
     )
     return json.dumps(writing_exam)
-
 
 # def map_data():
 #     f = open("data/writing/writing.csv", errors='ignore')

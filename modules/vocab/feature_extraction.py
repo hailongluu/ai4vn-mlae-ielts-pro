@@ -7,10 +7,9 @@ import re, collections
 from collections import defaultdict
 from sklearn.feature_extraction.text import CountVectorizer
 import os
-from io_util import load_data, dump_data
+from .io_util import load_data, dump_data
 
-
-big_data = open('big.txt').read()
+big_data = open('modules/vocab/big.txt').read()
 words_ = re.findall('[a-z]+', big_data.lower())
 word_dict = collections.defaultdict(lambda: 0)
 for word in words_:
@@ -131,7 +130,6 @@ def count_spell_error(essay):
     #         and lists of most frequent words from Wiktionary and the British National Corpus.
     #         It contains about a million words.
 
-
     clean_essay = re.sub(r'\W', ' ', str(essay).lower())
     clean_essay = re.sub(r'[0-9]', '', clean_essay)
 
@@ -191,7 +189,6 @@ def count_pos(essay):
 
 
 def get_count_vectors(essays):
-
     vectorizer = CountVectorizer(max_features=10000, ngram_range=(1, 1), stop_words='english')
 
     count_vectors = vectorizer.fit_transform(essays)

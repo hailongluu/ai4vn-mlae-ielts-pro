@@ -1,6 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import data_collector
 from ai_adapter import APIAdapter
+
 # import modules.grammar.score_grammar
 
 app = Flask(__name__)
@@ -20,7 +21,7 @@ def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
     response = api_adapter.get_score_reports(topic, text)
-    return response
+    return jsonify(response)
 
 
 @app.route("/exam/get_full")
