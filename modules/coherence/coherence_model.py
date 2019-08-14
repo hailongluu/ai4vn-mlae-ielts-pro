@@ -1,4 +1,3 @@
-
 import re
 import pickle
 from keras.preprocessing.text import text_to_word_sequence
@@ -16,6 +15,8 @@ MAX_SENTS_TOPIC = 15
 MAX_NB_WORDS = 400
 EMBEDDING_DIM = 300
 VALIDATION_SPLIT = 0.2
+
+
 class AttLayer(Layer):
     def __init__(self, attention_dim):
         self.init = initializers.get('normal')
@@ -26,7 +27,7 @@ class AttLayer(Layer):
     def build(self, input_shape):
         assert len(input_shape) == 3
         self.W = K.variable(self.init((input_shape[-1], self.attention_dim)), name='W')
-        self.b = K.variable(self.init((self.attention_dim, )), name='b')
+        self.b = K.variable(self.init((self.attention_dim,)), name='b')
         self.u = K.variable(self.init((self.attention_dim, 1)), name='u')
         self.trainable_weights = [self.W, self.b, self.u]
         super(AttLayer, self).build(input_shape)
@@ -56,7 +57,8 @@ class AttLayer(Layer):
 
 
 class CoherenceModel():
-    def __init__(self, matrix_path="embedding_matrix.txt", weight_path="./model/pre-35-0.0187.h5", word_path="word_index.pkl"):
+    def __init__(self, matrix_path="embedding_matrix.txt", weight_path="./model/pre-35-0.0187.h5",
+                 word_path="word_index.pkl"):
         f = open(word_path, 'rb')
         self.word_index = pickle.load(f)
         f.close()
@@ -153,11 +155,11 @@ class CoherenceModel():
         essay, text, topic = self.load_data(essay, topic)
         essay = self.prepare_data(essay, text, MAX_SENTS)
         topic = self.prepare_data(topic, text, MAX_SENTS_TOPIC)
-        pred_score = self.model.predict([essay, topic])[0][0]*9
+        pred_score = self.model.predict([essay, topic])[0][0] * 9
         decimal = pred_score - int(pred_score)
-        if decimal >= 0 and decimal <= 0.25:
+        if 0 <= decimal <= 0.25:
             decimal = 0
-        elif decimal > 0.25 and decimal <= 0.75:
+        elif 0.25 < decimal <= 0.75:
             decimal = 0.5
         else:
             decimal = 1

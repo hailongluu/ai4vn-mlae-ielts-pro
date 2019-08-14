@@ -1,9 +1,7 @@
 from flask import Flask, request
-from flask_ngrok import run_with_ngrok
 import ai_adapter, data_collector
 
 app = Flask(__name__)
-
 
 # run_with_ngrok(app)
 
@@ -17,7 +15,7 @@ def welcome_home():
 def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
-    response = ai_adapter.get_score_reports(text)
+    response = ai_adapter.get_score_reports(topic, text)
     return response
 
 
@@ -35,5 +33,6 @@ def get_writing_exam():
 
 
 if __name__ == "__main__":
+
     app.run(port=5000, debug=True)
     # app.run()
