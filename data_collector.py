@@ -1,8 +1,26 @@
 import csv
 import json
+import re
+import contractions
+
+
+def clean_str(string):
+    """
+    Tokenization/string cleaning for dataset
+    Every dataset is lower cased except
+    """
+    string = str(string)
+    string = re.sub(r"\n", "", string)
+    string = re.sub(r" ", "", string)
+
+    string = contractions.fix(string)
+    # print(string)
+    string = string.translate(str.maketrans('', '', "!#$%&'?().,*.+-/:<=>@[\]^_`{|}~"))
+    return string.strip().lower()
 
 
 def get_sample_topic(topic):
+    topic = clean_str(topic)
     f = open("data/writing/writing.csv", errors='ignore')
     data_file = list(csv.reader(f, delimiter=','))
     f.close()
@@ -10,8 +28,9 @@ def get_sample_topic(topic):
     for row in data_file:
         print(row[0])
         print(topic)
-        print(row[1])
-        if topic == row[1]:
+        topic_sample = clean_str(row[1])
+        print(topic_sample)
+        if topic == topic_sample:
             sample.append(dict(text=row[2], band=row[3]))
     return sample
 
