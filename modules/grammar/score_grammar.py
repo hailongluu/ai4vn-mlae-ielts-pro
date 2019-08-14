@@ -1,6 +1,7 @@
 from nltk import tokenize
 from grammarbot import GrammarBotClient
 from modules.grammar.txt2txt import DeepCorrect
+# from txt2txt import DeepCorrect
 import difflib
 import pandas as pd
 import json
@@ -8,10 +9,20 @@ import json
 client = GrammarBotClient()
 client = GrammarBotClient(api_key='AF5B9M2X')
 model_deep_correct = DeepCorrect('modules/grammar/params', 'modules/grammar/checkpoint')
+# model_deep_correct = DeepCorrect('params', 'checkpoint')
+
 print("Loaded model")
 complex_words = ["who", "whom", "which", "that", "whose", "moreover", "therefore", "however", "while", ",", "such as",
                  "for example"]
 
+def find_pos_by_no_word(no_word,sentence):
+    pos_word=0
+    for (i,c) in enumerate(sentence):
+        if pos_word==no_word:
+            return i
+        if c==" ":
+            pos_word+=1
+    return -1
 
 def my_get_opcodes(a, b):
     sentence = a
@@ -31,8 +42,8 @@ def my_get_opcodes(a, b):
                 rep_word += rid
                 rep_word += ' '
             rep_word = rep_word[:-1]
-            if (rep_word[-2:] != 'ss'):
-                offset = sentence.find(ori_word)
+            if(rep_word[-2:]!='ss' and ori_word!=''):
+                offset=find_pos_by_no_word(i1,sentence)
                 length = len(ori_word)
                 error_instace = Error(offset, length, rep_word)
                 list_err.append(error_instace)
@@ -156,13 +167,14 @@ def read_data_sets(file_path):
     data = pd.read_csv(file_path, sep='|')
     return data
 
-# if __name__ == '__main__':
-#     dataset = read_data_sets(file_path='test.csv')
-#     paragraphs = dataset['review']
-#     score_cons = dataset['sentiment'] * 9
-#     for (idx, paragraph) in enumerate(paragraphs):
-#         score_con = score_cons[idx]
-#         grammar_score = 0
-#         essay = Essay(paragraph)
-#         print(essay.toJSON())
-#         # print(str(score_con)+' '+str(grammar_score))
+
+if __name__ == '__main__':
+    dataset = read_data_sets(file_path='test.csv')
+    paragraphs = dataset['review']
+    score_cons = dataset['sentiment'] * 9
+    for (idx, paragraph) in enumerate(paragraphs):
+        score_con = score_cons[idx]
+        essay = Essay(paragraph)
+        print(str(score_con))
+        print(essay.toJSON())
+
