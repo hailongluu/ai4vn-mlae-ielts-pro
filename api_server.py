@@ -37,5 +37,3 @@ def get_writing_exam():
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
     # app.run()
-
-    # app.run()
