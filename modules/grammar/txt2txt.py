@@ -295,14 +295,18 @@ class DeepCorrect():
         DeepCorrect.deepcorrect_model[0].load_weights(checkpoint_path)
         DeepCorrect.deepcorrect_model[0]._make_predict_function()
     
-    def correct(self, sentence, beam_size = 1):
+    def correct(self, sentences, beam_size = 1):
         if not DeepCorrect.deepcorrect_model:
             print('Please load the model first')
 
-        sentence = sentence.strip()
-        sentence = infer(sentence, DeepCorrect.deepcorrect_model[0], DeepCorrect.deepcorrect_model[1], beam_size = beam_size)
+        striped_sentences=[]
+        for sentence in sentences:
+            sentence = sentence.strip()
+            striped_sentences.append(sentence)
+
+        corrected_sentence = infer(striped_sentences, DeepCorrect.deepcorrect_model[0], DeepCorrect.deepcorrect_model[1], beam_size = beam_size)
         
-        return sentence
+        return corrected_sentence
 
 if __name__ == '__main__':
     with open('drive/My Drive/deepcorrect/err_sentences_train.txt') as f:
