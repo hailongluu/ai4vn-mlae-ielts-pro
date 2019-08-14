@@ -156,7 +156,6 @@ def read_data_sets(file_path):
     data = pd.read_csv(file_path, sep='|')
     return data
 
-
 # if __name__ == '__main__':
 #     dataset = read_data_sets(file_path='test.csv')
 #     paragraphs = dataset['review']
