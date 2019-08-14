@@ -18,7 +18,6 @@ class APIAdapter:
         coherence_score = self.coherence_model.predict(text, topic)
         vocab_score = self.vocab_model.predict(text)
         text = re.sub(r"\n", "", text)
-        # text = str.encode(text, 'utf-8')
         # print(text)
 
         grammar_report = Essay(text).toJSON()

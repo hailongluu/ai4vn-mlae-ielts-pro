@@ -25,6 +25,8 @@ class Model:
         return self.bands[-1]
 
     def predict(self, text):
+        if text is None:
+            return 0
         features = get_features_from_text(text)
         predict_norm_score = self.model.predict(features)
         predicted_score = self._convert_to_band(predict_norm_score)

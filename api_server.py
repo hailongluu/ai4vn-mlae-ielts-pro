@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import data_collector
 from ai_adapter import APIAdapter
+import urllib
 
 # import modules.grammar.score_grammar
 
@@ -16,10 +17,14 @@ def welcome_home():
     return "welcome api main board"
 
 
-@app.route("/score/")
+@app.route("/score/", methods=['POST', 'GET'])
 def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
+    # print(text)
+    # text = urllib.parse.unquote(text)
+    # text = text.strip()
+    # print(text)
     response = api_adapter.get_score_reports(topic, text)
     return jsonify(response)
 
