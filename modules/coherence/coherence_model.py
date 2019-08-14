@@ -56,7 +56,7 @@ class AttLayer(Layer):
 
 
 class CoherenceModel():
-    def __init__(self, matrix_path="embedding_matrix.txt", weight_path="./model/pre-35-0.0187.h5", word_path="word_index.pkl"):
+    def __init__(self, matrix_path="embedding_matrix.txt", weight_path="pre-35-0.0187.h5", word_path="word_index.pkl"):
         f = open(word_path, 'rb')
         self.word_index = pickle.load(f)
         f.close()
@@ -164,6 +164,6 @@ class CoherenceModel():
         pred_score = int(pred_score) + decimal
         return pred_score
 
-# model = CoherenceModel()
-# print(model.predict("It is preferred to live in a house by some people but living in an apartment is considered more advantageous by the other group of people. I strongly agree with the second group of residents who prefer to live in an apartment rather being in a house. Living in an apartment makes the family closely-bonded as there are not multiple floors. The family members spend more time with each other while living on the same floor as compared to living in different floors in a house. Secondly, the safety in an apartment is more as the apartment’s society is always deployed with ample number of security guards along with CCTV cameras at all floors, entrance and staircase the society events and competitions give a platform to their children to interact with kids from different religions and background. It also encourage them to perform in front of large audience which enhances their public speaking skills. In total, living in an apartment is comparatively has more plus points than residing in a house.",
-#               "Some people prefer living in an apartment while others believe living in a house brings more advantages. Which, out of the two, is better?"))
+model = CoherenceModel()
+print(model.predict("It is preferred to live in a house by some people but living in an apartment is considered more advantageous by the other group of people. I strongly agree with the second group of residents who prefer to live in an apartment rather being in a house. Living in an apartment makes the family closely-bonded as there are not multiple floors. The family members spend more time with each other while living on the same floor as compared to living in different floors in a house. Secondly, the safety in an apartment is more as the apartment’s society is always deployed with ample number of security guards along with CCTV cameras at all floors, entrance and staircase the society events and competitions give a platform to their children to interact with kids from different religions and background. It also encourage them to perform in front of large audience which enhances their public speaking skills. In total, living in an apartment is comparatively has more plus points than residing in a house.",
+              "Some people prefer living in an apartment while others believe living in a house brings more advantages. Which, out of the two, is better?"))
