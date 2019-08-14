@@ -23,7 +23,8 @@ def welcome_home():
 def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
-    json_response = json.load("final_response_fomat.json")
+    f = open("final_response_fomat.json")
+    json_response = json.load(f)
 
     # mai nho bo cmt cai nay di
 
