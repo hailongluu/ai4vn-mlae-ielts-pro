@@ -8,7 +8,10 @@ from collections import defaultdict
 from sklearn.feature_extraction.text import CountVectorizer
 import os
 from .io_util import load_data, dump_data
-
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
 big_data = open('modules/vocab/big.txt').read()
 words_ = re.findall('[a-z]+', big_data.lower())
 word_dict = collections.defaultdict(lambda: 0)
@@ -247,13 +250,13 @@ def get_features_from_text(text):
         'domain1_score': 1
     }]
     data = pd.DataFrame.from_dict(data)
-    if os.path.exists('feature_names_cv.pkl'):
+    if os.path.exists('modules/vocab/feature_names_cv.pkl'):
         print('loading feature names')
-        feature_names_cv = load_data('feature_names_cv.pkl')
+        feature_names_cv = load_data('modules/vocab/feature_names_cv.pkl')
         X_cv = get_existing_count_vector(data[data['essay_set'] == 1]['essay'], feature_names_cv)
     else:
         feature_names_cv, count_vectors = get_count_vectors(data[data['essay_set'] == 1]['essay'])
-        dump_data('feature_names_cv.pkl', feature_names_cv)
+        dump_data('modules/vocab/feature_names_cv.pkl', feature_names_cv)
         X_cv = count_vectors.toarray()
 
     features_set1 = extract_features(data[data['essay_set'] == 1])

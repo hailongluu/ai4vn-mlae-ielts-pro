@@ -9,7 +9,7 @@ from modules.grammar.score_grammar import Essay
 
 class APIAdapter:
     def __init__(self):
-        self.coherence_model = CoherenceModel(weight_path="modules/coherence/tuned-03-0.0161.h5",
+        self.coherence_model = CoherenceModel(weight_path="modules/coherence/pre-35-0.0187.h5",
                                               word_path="modules/coherence/word_index.pkl",
                                               matrix_path="modules/coherence/embedding_matrix.txt")
         self.vocab_model = Model()
