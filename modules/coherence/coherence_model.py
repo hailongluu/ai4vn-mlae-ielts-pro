@@ -81,7 +81,7 @@ class CoherenceModel():
 
     def clean_str(self, string):
         """
-        Tokenization/string cleaning for dataset
+        Tokenization/string cleaning for dataseta
         Every dataset is lower cased except
         """
         string = str(string)
