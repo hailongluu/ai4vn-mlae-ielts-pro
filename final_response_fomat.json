@@ -1,0 +1,436 @@
+{
+  "coherence_score": 7.5,
+  "grammar": {
+    "grammar_error": [
+      {
+        "corrected_word": "professionals",
+        "length": 13,
+        "offset": 27
+      },
+      {
+        "corrected_word": "to foreign",
+        "length": 9,
+        "offset": 49
+      },
+      {
+        "corrected_word": ", many",
+        "length": 5,
+        "offset": 100
+      },
+      {
+        "corrected_word": ", and",
+        "length": 4,
+        "offset": 149
+      },
+      {
+        "corrected_word": "causes many",
+        "length": 10,
+        "offset": 193
+      },
+      {
+        "corrected_word": "these problems",
+        "length": 13,
+        "offset": 246
+      },
+      {
+        "corrected_word": "government can",
+        "length": 13,
+        "offset": 295
+      },
+      {
+        "corrected_word": "them",
+        "length": 4,
+        "offset": 322
+      },
+      {
+        "corrected_word": " Multiple",
+        "length": 8,
+        "offset": 327
+      },
+      {
+        "corrected_word": "professionals",
+        "length": 13,
+        "offset": 360
+      },
+      {
+        "corrected_word": "home country",
+        "length": 11,
+        "offset": 424
+      },
+      {
+        "corrected_word": "the doctors",
+        "length": 10,
+        "offset": 478
+      },
+      {
+        "corrected_word": "forgotten",
+        "length": 9,
+        "offset": 530
+      },
+      {
+        "corrected_word": "shortage of",
+        "length": 10,
+        "offset": 574
+      },
+      {
+        "corrected_word": "as these",
+        "length": 7,
+        "offset": 631
+      },
+      {
+        "corrected_word": "Leave",
+        "length": 5,
+        "offset": 654
+      },
+      {
+        "corrected_word": "medical students",
+        "length": 15,
+        "offset": 727
+      },
+      {
+        "corrected_word": "under",
+        "length": 5,
+        "offset": 793
+      },
+      {
+        "corrected_word": "experienced",
+        "length": 11,
+        "offset": 857
+      },
+      {
+        "corrected_word": "The",
+        "length": 3,
+        "offset": 1030
+      },
+      {
+        "corrected_word": "lucrative benefits",
+        "length": 17,
+        "offset": 1071
+      },
+      {
+        "corrected_word": "addition,",
+        "length": 8,
+        "offset": 1120
+      },
+      {
+        "corrected_word": "enforce",
+        "length": 7,
+        "offset": 1159
+      },
+      {
+        "corrected_word": "require these",
+        "length": 12,
+        "offset": 1177
+      },
+      {
+        "corrected_word": "measures may",
+        "length": 11,
+        "offset": 1282
+      },
+      {
+        "corrected_word": "addition to",
+        "length": 10,
+        "offset": 1331
+      },
+      {
+        "corrected_word": "tax benefit",
+        "length": 10,
+        "offset": 1441
+      },
+      {
+        "corrected_word": "Subsidized",
+        "length": 10,
+        "offset": 1464
+      },
+      {
+        "corrected_word": "that they",
+        "length": 8,
+        "offset": 1492
+      },
+      {
+        "corrected_word": "Or",
+        "length": 2,
+        "offset": 1518
+      },
+      {
+        "corrected_word": "the government",
+        "length": 13,
+        "offset": 1644
+      },
+      {
+        "corrected_word": "migration",
+        "length": 10,
+        "offset": 1715
+      },
+      {
+        "corrected_word": "shortage of",
+        "length": 10,
+        "offset": 1794
+      },
+      {
+        "corrected_word": "home country",
+        "length": 11,
+        "offset": 1846
+      },
+      {
+        "corrected_word": "migration by",
+        "length": 11,
+        "offset": 1890
+      },
+      {
+        "corrected_word": "country land",
+        "length": 11,
+        "offset": 1943
+      },
+      {
+        "corrected_word": "eas",
+        "length": 2,
+        "offset": 84
+      },
+      {
+        "corrected_word": "takes to stop then governmentcans",
+        "length": 0,
+        "offset": 0
+      },
+      {
+        "corrected_word": "",
+        "length": 9,
+        "offset": 540
+      },
+      {
+        "corrected_word": "Leave",
+        "length": 5,
+        "offset": 125
+      },
+      {
+        "corrected_word": "isnos",
+        "length": 8,
+        "offset": 686
+      },
+      {
+        "corrected_word": "propen is medicalstudents Expencedprofessionals.",
+        "length": 65,
+        "offset": 777
+      },
+      {
+        "corrected_word": "solved easily,",
+        "length": 14,
+        "offset": 975
+      },
+      {
+        "corrected_word": "The",
+        "length": 3,
+        "offset": 131
+      },
+      {
+        "corrected_word": "in",
+        "length": 2,
+        "offset": 16
+      },
+      {
+        "corrected_word": "Or the",
+        "length": 4,
+        "offset": 1228
+      },
+      {
+        "corrected_word": "anitances",
+        "length": 8,
+        "offset": 1573
+      },
+      {
+        "corrected_word": "laws is",
+        "length": 14,
+        "offset": 1596
+      },
+      {
+        "corrected_word": "greatextent,",
+        "length": 13,
+        "offset": 1688
+      },
+      {
+        "corrected_word": "doctor.",
+        "length": 129,
+        "offset": 1729
+      },
+      {
+        "corrected_word": "makes",
+        "length": 4,
+        "offset": 1606
+      },
+      {
+        "corrected_word": "mandatorufors are least",
+        "length": 43,
+        "offset": 1991
+      },
+      {
+        "corrected_word": "to serve in the coun",
+        "length": 32,
+        "offset": 2059
+      }
+    ],
+    "grammar_old_graph": "Itis observed that medical proffesionals migrate toforeign countries for financial reasons. Nowadays,many nurses and doctors leave their home country,and settle aboard for work. This situation causesmany problems. This ea essay will discuss what theseproblems are and possible measures that the governmentcan take to stop then.Multiple issues arise when these profersionals moveto a foreign country. First and foremost, the homecountry loses qualified people. In India, most of thedoctors and nurses recently left their home town forbetten prospects and as such, there is a shortageof experienced doctors in many states. Secondly, asthese professionals. leave their home country, there isno one to teach and train the aspiring medicalstudents Expertise can only be gained with propen.training unden well qualified and expenencedprofessionals. Thus, lack of expenienced people in theI medical field may pose a threat to the society asla whole. Though these problems cannot be solved.easily, we can definitely offer some solutions. the most important solution is to offer. lucrativebenefits in order to stop migration. In addition tothis, the government should enfonce laws that requirethese professionals to serve their country for at least5 years before they migrate. However, this measuresmay not completely resolve the issue. In additionto enacting laws that check migration, the govermentshould offen qualified doctors and nurses certain taxbenefit or loans at Jubsidised interest rate so thatthey can open clinic. or a hospital. In other words, 10by offering financial anitance and enforcing laws.that make senice in the country mandatory, thegovernment can deal with this issue to a greatextentTo conclude the mulgration of doctors and nurses.to foreign contan countries leads to an acute shortageof qualified medical professionals in their homecountry. The government can arrest this migrationby offering better opportunities within the countryland also by enforcing laws that make it mandatorufor doctors and nurses to serve in the country forat least a few years before moving aboard "
+  },
+  "grammar_score": 2.0,
+  "overall_score": 4.8,
+  "sample": [],
+  "vocab_recommend": [
+    {
+      "length": 8,
+      "offset": 268,
+      "synonyms": [
+        "feasible"
+      ]
+    },
+    {
+      "length": 4,
+      "offset": 317,
+      "synonyms": [
+        "cease"
+      ]
+    },
+    {
+      "length": 4,
+      "offset": 1101,
+      "synonyms": [
+        "cease"
+      ]
+    },
+    {
+      "length": 4,
+      "offset": 757,
+      "synonyms": [
+        "unique",
+        "distinctive"
+      ]
+    },
+    {
+      "length": 5,
+      "offset": 892,
+      "synonyms": [
+        "domain"
+      ]
+    },
+    {
+      "length": 5,
+      "offset": 936,
+      "synonyms": [
+        "entire"
+      ]
+    },
+    {
+      "length": 9,
+      "offset": 1039,
+      "synonyms": [
+        "necessary",
+        "vital",
+        "critical",
+        "indispensable",
+        "valuable",
+        "essential",
+        "famous",
+        "notable",
+        "crucial",
+        "significant"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 86,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 923,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 975,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 1014,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 1019,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 1049,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 1311,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 1489,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 2,
+      "offset": 1957,
+      "synonyms": [
+        "consequently",
+        "accordingly"
+      ]
+    },
+    {
+      "length": 4,
+      "offset": 1606,
+      "synonyms": [
+        "create",
+        "originate",
+        "invent",
+        "construct",
+        "manufacture",
+        "produce",
+        "compose"
+      ]
+    },
+    {
+      "length": 4,
+      "offset": 1983,
+      "synonyms": [
+        "create",
+        "originate",
+        "invent",
+        "construct",
+        "manufacture",
+        "produce",
+        "compose"
+      ]
+    }
+  ],
+  "vocab_score": 5.0
+}
