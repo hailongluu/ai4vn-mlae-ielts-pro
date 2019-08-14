@@ -4,13 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/data_collector.py" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30e97dd1-ff91-41c6-8eac-d6ac4b7677a3" name="Default Changelist" comment="merge-adapter-grammer">
-      <change afterPath="$PROJECT_DIR$/modules/coherence/test.py" afterDir="false" />
+    <list default="true" id="30e97dd1-ff91-41c6-8eac-d6ac4b7677a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai_adapter.py" beforeDir="false" afterPath="$PROJECT_DIR$/ai_adapter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/api_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/coherence/coherence_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/coherence/coherence_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/grammar/score_grammar.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/grammar/score_grammar.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,15 +34,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/coherence/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/coherence/embedding_matrix.txt">
           <provider selected="true" editor-type-id="LargeFileEditor">
             <state>
@@ -56,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/grammar/score_grammar.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="239">
@@ -64,6 +50,15 @@
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/grammar/test.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -342,7 +337,7 @@
       <workItem from="1565738906783" duration="1758000" />
       <workItem from="1565757879099" duration="5025000" />
       <workItem from="1565764728940" duration="4519000" />
-      <workItem from="1565769520143" duration="3550000" />
+      <workItem from="1565769520143" duration="4905000" />
     </task>
     <task id="LOCAL-00001" summary="v0.1">
       <created>1565719266789</created>
@@ -386,11 +381,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565763000925</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="merge-adapter">
+      <created>1565773878407</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773878407</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28723000" />
+    <option name="totallyTimeSpent" value="30078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -426,7 +428,8 @@
     <MESSAGE value="v0.1" />
     <MESSAGE value="update 14/08" />
     <MESSAGE value="merge-adapter-coherence" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge-adapter-coherence" />
+    <MESSAGE value="merge-adapter" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge-adapter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -545,6 +548,13 @@
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/grammar/test.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
