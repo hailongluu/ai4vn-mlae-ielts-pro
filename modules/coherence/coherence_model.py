@@ -1,5 +1,8 @@
 import re
 import os
+
+# os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import pickle
 from keras.preprocessing.text import text_to_word_sequence
 from keras.layers import *

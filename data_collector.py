@@ -26,10 +26,7 @@ def get_sample_topic(topic):
     f.close()
     sample = []
     for row in data_file:
-        print(row[0])
-        print(topic)
         topic_sample = clean_str(row[1])
-        print(topic_sample)
         if topic == topic_sample:
             sample.append(dict(text=row[2], band=row[3]))
     return sample
