@@ -21,10 +21,6 @@ def welcome_home():
 def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
-    # print(text)
-    # text = urllib.parse.unquote(text)
-    # text = text.strip()
-    # print(text)
     response = api_adapter.get_score_reports(topic, text)
     return jsonify(response)
 
