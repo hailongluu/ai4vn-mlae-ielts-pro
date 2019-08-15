@@ -276,50 +276,42 @@
   "vocab_recommend": [
     {
       "length": 8,
-      "offset": 268,
+      "offset": 267,
       "synonyms": [
         "feasible"
       ]
     },
     {
       "length": 4,
-      "offset": 317,
+      "offset": 316,
       "synonyms": [
         "cease"
       ]
     },
     {
       "length": 4,
-      "offset": 1101,
+      "offset": 1100,
       "synonyms": [
         "cease"
-      ]
-    },
-    {
-      "length": 4,
-      "offset": 757,
-      "synonyms": [
-        "unique",
-        "distinctive"
       ]
     },
     {
       "length": 5,
-      "offset": 892,
+      "offset": 891,
       "synonyms": [
         "domain"
       ]
     },
     {
       "length": 5,
-      "offset": 936,
+      "offset": 935,
       "synonyms": [
         "entire"
       ]
     },
     {
       "length": 9,
-      "offset": 1039,
+      "offset": 1038,
       "synonyms": [
         "necessary",
         "vital",
@@ -334,80 +326,8 @@
       ]
     },
     {
-      "length": 2,
-      "offset": 86,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 923,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 975,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 1014,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 1019,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 1049,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 1311,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 1489,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
-      "length": 2,
-      "offset": 1957,
-      "synonyms": [
-        "consequently",
-        "accordingly"
-      ]
-    },
-    {
       "length": 4,
-      "offset": 1606,
+      "offset": 1605,
       "synonyms": [
         "create",
         "originate",
@@ -420,7 +340,7 @@
     },
     {
       "length": 4,
-      "offset": 1983,
+      "offset": 1982,
       "synonyms": [
         "create",
         "originate",

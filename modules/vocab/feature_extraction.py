@@ -28,7 +28,7 @@ def get_synonyms(text):
             lem = lemmatizer.lemmatize(token)
             if lem in syns_dict.keys() and lem not in marked_words:
                 marked_words.append(lem)
-                for m in re.finditer(lem, text):
+                for m in re.finditer('[\s.,\"\']{}[\s.,\"\']?'.format(lem), text):
                     synonyms.append({
                         'synonyms': syns_dict[lem],
                         'length': len(token),
