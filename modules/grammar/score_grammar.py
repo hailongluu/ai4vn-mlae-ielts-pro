@@ -151,7 +151,7 @@ class Essay:
     def score_a_sentence(self, sentence):
         score = 9
         if not self.check_contain_complex_words(sentence.lower()):
-            score -= 2
+            score -= 1
         noWords = self.calculate_number_words(sentence)
         if (noWords < 15):
             score -= 1
@@ -170,7 +170,9 @@ class Essay:
         for err in self.res_merged:
             if(err.minus_score==True):
                 no_err+=1
-        total_score -= (no_err * 2)
+            else:
+                no_err+0.25
+        total_score -= (no_err * 4)
 
         number_words = self.calculate_number_words(self.org_paragraph)
         if number_words > 285 or number_words < 215:
