@@ -267,8 +267,7 @@ def extract_features(data):
 def get_features_from_text(text):
     data = [{
         'essay_set': 1,
-        'essay': text,
-        'domain1_score': 1
+        'essay': text
     }]
     data = pd.DataFrame.from_dict(data)
     if os.path.exists('modules/vocab/feature_names_cv.pkl'):
