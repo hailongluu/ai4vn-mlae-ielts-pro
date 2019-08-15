@@ -15,13 +15,14 @@ class APIAdapter:
         self.vocab_model = Model()
 
     def get_score_reports(self, topic, text):
+        grammar_essay=Essay(text)
         coherence_score = self.coherence_model.predict(text, topic)
-        vocab_score = self.vocab_model.predict(text)
+        vocab_score = self.vocab_model.predict(grammar_essay.org_paragraph)
 
-        text = re.sub(r"\n", "", text)
+        # text = re.sub(r"\n", "", text)
         # print(text)
 
-        grammar_report = Essay(text).toJSON()
+        grammar_report = grammar_essay.toJSON()
         grammar_report = json.loads(grammar_report)
         grammar_score = grammar_report["score"]
         grammar_error = grammar_report["res_merged"]
