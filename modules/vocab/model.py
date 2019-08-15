@@ -1,5 +1,5 @@
 from keras.models import load_model
-from modules.vocab.feature_extraction import get_features_from_text
+from modules.vocab.feature_extraction import get_features_from_text, get_synonyms
 import numpy as np
 
 
@@ -30,4 +30,6 @@ class Model:
         features = get_features_from_text(text)
         predict_norm_score = self.model.predict(features)
         predicted_score = self._convert_to_band(predict_norm_score)
-        return predicted_score
+        list_synonyms = get_synonyms(text)
+        vocab = dict(vocab_recommend=list_synonyms, predicted_score=predicted_score)
+        return vocab

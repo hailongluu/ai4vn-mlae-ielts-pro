@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request, jsonify
 import data_collector
 from ai_adapter import APIAdapter
@@ -21,13 +23,15 @@ def welcome_home():
 def get_score():
     topic = request.args.get("topic")
     text = request.args.get("text")
-    # print(text)
-    # text = urllib.parse.unquote(text)
-    # text = text.strip()
-    # print(text)
+
+    # f = open("final_response_fomat.json")
+    # json_response = json.load(f)
+
+    # mai nho bo cmt cai nay di
+
     response = api_adapter.get_score_reports(topic, text)
     return jsonify(response)
-
+    # return json_response
 
 @app.route("/exam/get_full")
 def get_full_exam():
@@ -36,10 +40,10 @@ def get_full_exam():
     return response
 
 
-@app.route("/exam/get_topic")
-def get_topic():
-    topics = data_collector.get_topic(20)
-    return jsonify(topics)
+# @app.route("/exam/get_topic")
+# def get_topic():
+#     topics = data_collector.get_topic(20)
+#     return jsonify(topics)
 
 
 @app.route("/exam/get_writing")

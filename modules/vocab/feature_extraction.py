@@ -5,6 +5,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 import re, collections
 from collections import defaultdict
+from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 import os
 from .io_util import load_data, dump_data
@@ -17,6 +18,26 @@ words_ = re.findall('[a-z]+', big_data.lower())
 word_dict = collections.defaultdict(lambda: 0)
 for word in words_:
     word_dict[word] += 1
+
+
+def get_synonyms(text):
+    lemmatizer = WordNetLemmatizer()
+    syns_dict = load_data('modules/vocab/syn_dict.pkl')
+    synonyms = []
+    marked_words = []
+    sentences = tokenize(text)
+    for sent in sentences:
+        for token in sent:
+            lem = lemmatizer.lemmatize(token)
+            if lem in syns_dict.keys() and lem not in marked_words:
+                marked_words.append(lem)
+                for m in re.finditer('[\s.,\"\']{}[\s.,\"\']?'.format(lem), text):
+                    synonyms.append({
+                        'synonyms': syns_dict[lem],
+                        'length': len(token),
+                        'offset': m.start(0)
+                    })
+    return synonyms
 
 
 def sentence_to_wordlist(raw_sentence):
