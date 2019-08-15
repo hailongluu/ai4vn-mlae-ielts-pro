@@ -168,13 +168,13 @@ def read_data_sets(file_path):
     return data
 
 
-if __name__ == '__main__':
-    dataset = read_data_sets(file_path='test.csv')
-    paragraphs = dataset['review']
-    score_cons = dataset['sentiment'] * 9
-    for (idx, paragraph) in enumerate(paragraphs):
-        score_con = score_cons[idx]
-        essay = Essay(paragraph)
-        print(str(score_con))
-        print(essay.toJSON())
-
+# if __name__ == '__main__':
+#     dataset = read_data_sets(file_path='test.csv')
+#     paragraphs = dataset['review']
+#     score_cons = dataset['sentiment'] * 9
+#     for (idx, paragraph) in enumerate(paragraphs):
+#         score_con = score_cons[idx]
+#         essay = Essay(paragraph)
+#         print(str(score_con))
+#         print(essay.toJSON())
+#

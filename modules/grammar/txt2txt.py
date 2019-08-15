@@ -308,45 +308,45 @@ class DeepCorrect():
         
         return corrected_sentence
 
-if __name__ == '__main__':
-    with open('drive/My Drive/deepcorrect/err_sentences_train.txt') as f:
-        content=f.readlines()
-    input_train_data=[x.strip() for x in content]
-    
-    with open('drive/My Drive/deepcorrect/cor_sentences_train.txt') as f:
-        content=f.readlines()
-    output_train_data=[x.strip() for x in content]
-
-    with open('drive/My Drive/deepcorrect/err_sentences_valid.txt') as f:
-        content=f.readlines()
-    input_valid_data=[x.strip() for x in content]
-    
-    with open('drive/My Drive/deepcorrect/cor_sentences_valid.txt') as f:
-        content=f.readlines()
-    output_valid_data=[x.strip() for x in content]
-
-    with open('drive/My Drive/deepcorrect/err_sentences_test.txt') as f:
-        content=f.readlines()
-    input_test_data=[x.strip() for x in content]
-    
-    with open('drive/My Drive/deepcorrect/cor_sentences_test.txt') as f:
-        content=f.readlines()
-    output_test_data=[x.strip() for x in content]
-
-    input_data=input_train_data+input_valid_data+input_test_data
-    output_data=output_train_data+output_valid_data+output_test_data
-
-    build_params(input_data = input_data, output_data = output_data, params_path = 'drive/My Drive/deepcorrect/params', max_lenghts=(300, 300))
-    
-    model, params = build_model(params_path='drive/My Drive/deepcorrect/params')
-
-    input_train_data, output_train_data = convert_data(input_train_data, output_train_data, params)
-    input_valid_data, output_valid_data = convert_data(input_valid_data, output_valid_data, params)
-    input_test_data, output_test_data = convert_data(input_test_data, output_test_data, params)
-    
-    checkpoint = ModelCheckpoint('drive/My Drive/deepcorrect/checkpoint', monitor='val_acc', verbose=1, save_best_only=True, mode='max')
-    callbacks_list = [checkpoint]
-
-    model.fit(input_train_data, output_train_data, validation_data=(input_valid_data, output_valid_data), batch_size=128, epochs=20, callbacks=callbacks_list)
-    test_acc = model.evaluate(input_test_data, output_test_data)
-    print('Test accuracy:', test_acc)
+# if __name__ == '__main__':
+#     with open('drive/My Drive/deepcorrect/err_sentences_train.txt') as f:
+#         content=f.readlines()
+#     input_train_data=[x.strip() for x in content]
+#
+#     with open('drive/My Drive/deepcorrect/cor_sentences_train.txt') as f:
+#         content=f.readlines()
+#     output_train_data=[x.strip() for x in content]
+#
+#     with open('drive/My Drive/deepcorrect/err_sentences_valid.txt') as f:
+#         content=f.readlines()
+#     input_valid_data=[x.strip() for x in content]
+#
+#     with open('drive/My Drive/deepcorrect/cor_sentences_valid.txt') as f:
+#         content=f.readlines()
+#     output_valid_data=[x.strip() for x in content]
+#
+#     with open('drive/My Drive/deepcorrect/err_sentences_test.txt') as f:
+#         content=f.readlines()
+#     input_test_data=[x.strip() for x in content]
+#
+#     with open('drive/My Drive/deepcorrect/cor_sentences_test.txt') as f:
+#         content=f.readlines()
+#     output_test_data=[x.strip() for x in content]
+#
+#     input_data=input_train_data+input_valid_data+input_test_data
+#     output_data=output_train_data+output_valid_data+output_test_data
+#
+#     build_params(input_data = input_data, output_data = output_data, params_path = 'drive/My Drive/deepcorrect/params', max_lenghts=(300, 300))
+#
+#     model, params = build_model(params_path='drive/My Drive/deepcorrect/params')
+#
+#     input_train_data, output_train_data = convert_data(input_train_data, output_train_data, params)
+#     input_valid_data, output_valid_data = convert_data(input_valid_data, output_valid_data, params)
+#     input_test_data, output_test_data = convert_data(input_test_data, output_test_data, params)
+#
+#     checkpoint = ModelCheckpoint('drive/My Drive/deepcorrect/checkpoint', monitor='val_acc', verbose=1, save_best_only=True, mode='max')
+#     callbacks_list = [checkpoint]
+#
+#     model.fit(input_train_data, output_train_data, validation_data=(input_valid_data, output_valid_data), batch_size=128, epochs=20, callbacks=callbacks_list)
+#     test_acc = model.evaluate(input_test_data, output_test_data)
+#     print('Test accuracy:', test_acc)

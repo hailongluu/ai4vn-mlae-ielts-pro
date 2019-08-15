@@ -128,34 +128,33 @@ class CoherenceModel():
                                     input_length=MAX_SENT_LENGTH,
                                     trainable=True,
                                     mask_zero=True)
-
         # ----Essay model--------
         sentence_input = Input(shape=(MAX_SENT_LENGTH,), dtype='int32')
         embedded_sequences = embedding_layer(sentence_input)
-        l_lstm = Bidirectional(GRU(50, return_sequences=True))(embedded_sequences)
+        l_lstm = Bidirectional(GRU(150, return_sequences=True))(embedded_sequences)
         l_lstm = Dropout(0.5)(l_lstm)
-        l_att = AttLayer(50)(l_lstm)
+        l_att = AttLayer(150)(l_lstm)
         sentEncoder = Model(sentence_input, l_att)
 
         review_input = Input(shape=(MAX_SENTS, MAX_SENT_LENGTH), dtype='int32')
         review_encoder = TimeDistributed(sentEncoder)(review_input)
-        l_lstm_sent = Bidirectional(GRU(50, return_sequences=True))(review_encoder)
+        l_lstm_sent = Bidirectional(GRU(150, return_sequences=True))(review_encoder)
         l_lstm_sent = Dropout(0.5)(l_lstm_sent)
-        l_att_sent = AttLayer(50)(l_lstm_sent)
+        l_att_sent = AttLayer(150)(l_lstm_sent)
 
         # ----Topic model--------
         sentence_input_2 = Input(shape=(MAX_SENT_LENGTH,), dtype='int32')
         embedded_sequences_2 = embedding_layer(sentence_input_2)
-        l_lstm_2 = Bidirectional(GRU(50, return_sequences=True))(embedded_sequences_2)
-        l_lstm_2 = Dropout(0.3)(l_lstm_2)
-        l_att_2 = AttLayer(50)(l_lstm_2)
+        l_lstm_2 = Bidirectional(GRU(150, return_sequences=True))(embedded_sequences_2)
+        l_lstm_2 = Dropout(0.5)(l_lstm_2)
+        l_att_2 = AttLayer(150)(l_lstm_2)
         topicSentEncoder = Model(sentence_input_2, l_att_2)
 
         topic_input = Input(shape=(MAX_SENTS_TOPIC, MAX_SENT_LENGTH), dtype='int32')
         topic_encoder = TimeDistributed(topicSentEncoder)(topic_input)
-        l_lstm_sent_topic = Bidirectional(GRU(50, return_sequences=True))(topic_encoder)
-        l_lstm_sent_topic = Dropout(0.3)(l_lstm_sent_topic)
-        l_att_sent_topic = AttLayer(50)(l_lstm_sent_topic)
+        l_lstm_sent_topic = Bidirectional(GRU(150, return_sequences=True))(topic_encoder)
+        l_lstm_sent_topic = Dropout(0.5)(l_lstm_sent_topic)
+        l_att_sent_topic = AttLayer(150)(l_lstm_sent_topic)
 
         # ----Concat------
         pe = Multiply()([l_att_sent, l_att_sent_topic])

@@ -9,7 +9,7 @@ from modules.grammar.score_grammar import Essay
 
 class APIAdapter:
     def __init__(self):
-        self.coherence_model = CoherenceModel(weight_path="modules/coherence/pre-35-0.0187.h5",
+        self.coherence_model = CoherenceModel(weight_path="modules/coherence/pre-35-0.0194.h5",
                                               word_path="modules/coherence/word_index.pkl",
                                               matrix_path="modules/coherence/embedding_matrix.txt")
         self.vocab_model = Model()
@@ -17,8 +17,8 @@ class APIAdapter:
     def get_score_reports(self, topic, text):
         coherence_score = self.coherence_model.predict(text, topic)
         vocab_score = self.vocab_model.predict(text)
-        text = re.sub(r"\n", "", text)
-        # print(text)
+        # text = re.sub(r"\n", "", text)
+        print(text)
 
         grammar_report = Essay(text).toJSON()
         grammar_report = json.loads(grammar_report)
