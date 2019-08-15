@@ -5,13 +5,14 @@ from modules.grammar.txt2txt import DeepCorrect
 import difflib
 import pandas as pd
 import json
+import numpy as np
 
 client = GrammarBotClient()
+# AF5B9M2X
 client = GrammarBotClient(api_key='AF5B9M2X')
 model_deep_correct = DeepCorrect('modules/grammar/params', 'modules/grammar/checkpoint')
 # model_deep_correct = DeepCorrect('params', 'checkpoint')
 
-print("Loaded model")
 complex_words = ["who", "whom", "which", "that", "whose", "moreover", "therefore", "however", "while", ",", "such as",
                  "for example"]
 
@@ -82,7 +83,7 @@ class Essay:
         res_api = self.api_check(self.org_paragraph)
         res_model = self.model_check(self.org_paragraph)
         self.res_merged = self.merger_res_err(res_api, res_model)
-        self.score = self.score_essay()
+        self.score = calculate_band(self.score_essay())
 
     def print_err(self):
         print("API:")
@@ -139,7 +140,8 @@ class Essay:
 
     def check_contain_complex_words(self, sentence):
         for word in complex_words:
-            if (word in sentence):
+            lower_word=word.lower()
+            if (lower_word in sentence):
                 return True
         return False
 
@@ -149,7 +151,7 @@ class Essay:
     def score_a_sentence(self, sentence):
         score = 9
         if not self.check_contain_complex_words(sentence.lower()):
-            score -= 1
+            score -= 2
         noWords = self.calculate_number_words(sentence)
         if (noWords < 15):
             score -= 1
@@ -168,8 +170,7 @@ class Essay:
         for err in self.res_merged:
             if(err.minus_score==True):
                 no_err+=1
-        print(no_err)
-        total_score -= (no_err * 2.5)
+        total_score -= (no_err * 2)
 
         number_words = self.calculate_number_words(self.org_paragraph)
         if number_words > 285 or number_words < 215:
@@ -181,11 +182,21 @@ class Essay:
         return json.dumps(self, default=lambda o: o.__dict__,
                           sort_keys=True, indent=4)
 
+def calculate_band(est_score):
+    bands = np.arange(4.5, 9.5, 0.5)
+    for i in range(len(bands)):
+        if est_score > bands[i]:
+            continue
+        else:
+            lesser_band = bands[max(i - 1, 0)]
+            if est_score - lesser_band <= 0.25:
+                return lesser_band
+            return bands[i]
+    return bands[-1]
 
 def read_data_sets(file_path):
     data = pd.read_csv(file_path, sep='|')
     return data
-
 
 if __name__ == '__main__':
     dataset = read_data_sets(file_path='test.csv')
