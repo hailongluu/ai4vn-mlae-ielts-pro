@@ -55,7 +55,7 @@ class AttLayer(Layer):
         ait = K.exp(ait)
 
         if mask is not None:
-            # Cast the mask to floatX to avoid float64 upcasting in theano
+# Cast the mask to floatX to avoid float64 upcasting in theano
             ait *= K.cast(mask, K.floatx())
         ait /= K.cast(K.sum(ait, axis=1, keepdims=True) + K.epsilon(), K.floatx())
         ait = K.expand_dims(ait)
