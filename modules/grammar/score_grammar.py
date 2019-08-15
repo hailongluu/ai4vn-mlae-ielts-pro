@@ -45,11 +45,13 @@ def my_get_opcodes(a, b):
             if(rep_word[-2:]!='ss' and ori_word!=''):
                 offset=find_pos_by_no_word(i1,sentence)
                 length = len(ori_word)
-                error_instace = Error(offset, length, rep_word)
                 str_or=ori_word.replace(" ","")
-                rep_word=rep_word.replace(" ","")
-                if(str_or!=rep_word):
-                    list_err.append(error_instace)
+                str_rep=rep_word.replace(" ","")
+                if(str_or!=str_rep):
+                    error_instace = Error(offset, length, rep_word, True)
+                else:
+                    error_instace = Error(offset, length, rep_word, False)
+                list_err.append(error_instace)
 
     return list_err
 
@@ -64,10 +66,11 @@ def tokenize_paragraph(paragraph):
 
 
 class Error:
-    def __init__(self, offset, length, corrected_word):
+    def __init__(self, offset, length, corrected_word, minus_score):
         self.offset = offset
         self.length = length
         self.corrected_word = corrected_word
+        self.minus_score=minus_score
 
     def __str__(self):
         return str(self.__class__) + ": " + str(self.__dict__)
@@ -100,12 +103,14 @@ class Essay:
                 offset = err.replacement_offset
                 length = err.replacement_length
                 corrected_word = err.replacements[0]
-                error_instace = Error(offset, length, corrected_word)
                 ori_word=org_paragraph[offset:offset+length]
                 str_or=ori_word.replace(" ","")
-                corrected_word=corrected_word.replace(" ","")
-                if(str_or!=corrected_word):
-                    res_api.append(error_instace)
+                str_err=corrected_word.replace(" ","")
+                if(str_or!=str_err):
+                    error_instace = Error(offset, length, corrected_word,True)
+                else:
+                    error_instace = Error(offset, length, corrected_word,False)
+                res_api.append(error_instace)
 
         return res_api
 
@@ -159,7 +164,13 @@ class Essay:
             score = self.score_a_sentence(sentence)
             total_score += score
 
-        total_score -= (len(self.res_merged) * 2)
+        no_err=0
+        for err in self.res_merged:
+            if(err.minus_score==True):
+                no_err+=1
+        print(no_err)
+        total_score -= (no_err * 2.5)
+
         number_words = self.calculate_number_words(self.org_paragraph)
         if number_words > 285 or number_words < 215:
             total_score -= 1
@@ -177,16 +188,16 @@ def read_data_sets(file_path):
 
 
 if __name__ == '__main__':
-    # dataset = read_data_sets(file_path='test.csv')
-    # paragraphs = dataset['review']
-    # score_cons = dataset['sentiment'] * 9
-    # for (idx, paragraph) in enumerate(paragraphs):
-    #     score_con = score_cons[idx]
-    #     essay = Essay(paragraph)
-    #     print(str(score_con))
-    #     print(essay.toJSON())
-    f = open("request.txt", "r")
-    paragraph=f.read()
-    essay=Essay(paragraph)
-    print(essay.toJSON())
+    dataset = read_data_sets(file_path='test.csv')
+    paragraphs = dataset['review']
+    score_cons = dataset['sentiment'] * 9
+    for (idx, paragraph) in enumerate(paragraphs):
+        score_con = score_cons[idx]
+        essay = Essay(paragraph)
+        print(str(score_con))
+        print(essay.toJSON())
+    # f = open("request.txt", "r")
+    # paragraph=f.read()
+    # essay=Essay(paragraph)
+    # print(essay.toJSON())
 
