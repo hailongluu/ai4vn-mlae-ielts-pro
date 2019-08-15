@@ -15,7 +15,7 @@ class APIAdapter:
         self.vocab_model = Model()
 
     def get_score_reports(self, topic, text):
-        grammar_essay=Essay(text)
+        grammar_essay = Essay(text)
         coherence_score = self.coherence_model.predict(text, topic)
         vocab_score = self.vocab_model.predict(grammar_essay.org_paragraph)
 
@@ -32,7 +32,6 @@ class APIAdapter:
         # faking data for easier times
         # grammar_score = 5
         # grammar = dict(grammar_error=[], grammar_old_graph=[])
-
 
         # grammar_error = [dict(length=0, offset=111, replacement="The")]
         # vocab_recommend = [dict(length=0, offset=111, replacement="abc,abc,abc")]
