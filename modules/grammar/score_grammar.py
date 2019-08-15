@@ -46,7 +46,10 @@ def my_get_opcodes(a, b):
                 offset=find_pos_by_no_word(i1,sentence)
                 length = len(ori_word)
                 error_instace = Error(offset, length, rep_word)
-                list_err.append(error_instace)
+                str_or=ori_word.replace(" ","")
+                rep_word=rep_word.replace(" ","")
+                if(str_or!=rep_word):
+                    list_err.append(error_instace)
 
     return list_err
 
@@ -98,7 +101,12 @@ class Essay:
                 length = err.replacement_length
                 corrected_word = err.replacements[0]
                 error_instace = Error(offset, length, corrected_word)
-                res_api.append(error_instace)
+                ori_word=org_paragraph[offset:offset+length]
+                str_or=ori_word.replace(" ","")
+                corrected_word=corrected_word.replace(" ","")
+                if(str_or!=corrected_word):
+                    res_api.append(error_instace)
+
         return res_api
 
     def model_check(self, org_paragraph):
@@ -169,12 +177,16 @@ def read_data_sets(file_path):
 
 
 if __name__ == '__main__':
-    dataset = read_data_sets(file_path='test.csv')
-    paragraphs = dataset['review']
-    score_cons = dataset['sentiment'] * 9
-    for (idx, paragraph) in enumerate(paragraphs):
-        score_con = score_cons[idx]
-        essay = Essay(paragraph)
-        print(str(score_con))
-        print(essay.toJSON())
+    # dataset = read_data_sets(file_path='test.csv')
+    # paragraphs = dataset['review']
+    # score_cons = dataset['sentiment'] * 9
+    # for (idx, paragraph) in enumerate(paragraphs):
+    #     score_con = score_cons[idx]
+    #     essay = Essay(paragraph)
+    #     print(str(score_con))
+    #     print(essay.toJSON())
+    f = open("request.txt", "r")
+    paragraph=f.read()
+    essay=Essay(paragraph)
+    print(essay.toJSON())
 
